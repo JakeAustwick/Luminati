@@ -23,7 +23,7 @@ module Luminati
     end
     
     def get_connection(country: nil, dns_resolution: :remote, session: nil)
-      ip_address              =   self.fetch_master_proxy
+      ip_address              =   self.fetch_master_proxy(country)
       user_auth               =   self.generate_user_auth(country: country, dns_resolution: dns_resolution, session: session)
       
       return {ip_address: ip_address, port: self.port, password: self.password}.merge(user_auth)
